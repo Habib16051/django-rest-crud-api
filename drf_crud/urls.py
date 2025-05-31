@@ -21,4 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('apps.urls')),
     path('', include('drf_serializers.urls')),
+    path('', include('app_classviews.urls')),
 ]
