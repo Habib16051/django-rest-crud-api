@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'rest_framework',
     # Local apps
     'apps',  # Assuming 'apps' is the name of your Django app
+    'drf_serializers',
 ]
 
 MIDDLEWARE = [
