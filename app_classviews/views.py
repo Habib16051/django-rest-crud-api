@@ -10,6 +10,25 @@ from rest_framework import mixins
 from rest_framework import generics
 from django.contrib.auth.models import User
 from app_classviews.permissions import IsOwnerOrReadOnly
+from rest_framework.reverse import reverse
+from rest_framework import renderers
+from rest_framework.decorators import api_view
+
+class TravelHighlight(generics.GenericAPIView):
+    queryset = Travel.objects.all()
+    renderer_classes = [renderers.StaticHTMLRenderer]
+
+    def get(self, request, *args, **kwargs):
+        travel = self.get_object()
+        return Response(travel.highlighted)
+
+@api_view(['GET'])
+def api_root(request, format=None):
+    return Response({
+        'users': reverse('user-list', request=request, format=format),
+        'travels': reverse('travel-list', request=request, format=format)
+    })
+
 
 class UserList(generics.ListAPIView):
     queryset = User.objects.all()
