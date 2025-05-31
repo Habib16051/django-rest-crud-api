@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'apps',  # Assuming 'apps' is the name of your Django app
     'drf_serializers',
     'app_classviews',
+    'viewsets_and_routers',
 ]
 
 MIDDLEWARE = [
