@@ -23,3 +23,6 @@ urlpatterns = [
     path('', include('drf_serializers.urls')),
     path('', include('app_classviews.urls')),
 ]
+urlpatterns += [
+    path('api-auth/', include('rest_framework.urls')),
+]
